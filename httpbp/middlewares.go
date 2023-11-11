@@ -456,7 +456,11 @@ func PrometheusServerMetrics(_ string) Middleware {
 
 			defer func() {
 				code := errorCodeForMetrics(rec.responseCode, err)
+				fmt.Println("====error and code====")
+				fmt.Println("code", code)
+				fmt.Println("err", err)
 				success := isRequestSuccessful(code, err)
+				fmt.Println("is success?", success)
 
 				labels := prometheus.Labels{
 					methodLabel:   method,
